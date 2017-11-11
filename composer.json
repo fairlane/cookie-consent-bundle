@@ -5,10 +5,10 @@
     "keywords": ["cookie", "cookie consent"],
     "license": "WTFPL",
     "require": {
-        "php": "^5.5.9 || ^7.1",
-        "twig/twig": "^1.28 || ^2.0",
-        "symfony/framework-bundle": "^2.7 || ^3.3",
-        "symfony/twig-bundle": "^2.7 || ^3.3"
+        "php": ">=7.0",
+        "twig/twig": ">=1.28",
+        "symfony/framework-bundle": ">=2.7",
+        "symfony/twig-bundle": ">=2.7"
     },
     "autoload": {
         "psr-4": {
