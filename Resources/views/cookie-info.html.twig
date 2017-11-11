@@ -1,0 +1,39 @@
+{% if fairlane_cookie_consent.active == true and app.request.cookies.get('fairlane-cookie-consent') != 'ok'%}
+    {% if fairlane_cookie_consent.translate == true %}
+        {% set text_info = fairlane_cookie_consent.twig.text_info | trans %}
+        {% set text_additional_info_link = fairlane_cookie_consent.twig.text_additional_info_link | trans %}
+        {% set text_accept_button = fairlane_cookie_consent.twig.text_accept_button | trans %}
+    {% else %}
+        {% set text_info = fairlane_cookie_consent.twig.text_info %}
+        {% set text_additional_info_link = fairlane_cookie_consent.twig.text_additional_info_link %}
+        {% set text_accept_button = fairlane_cookie_consent.twig.text_accept_button %}
+    {% endif %}
+    <div id="fairlane-cookie-consent" {% if fairlane_cookie_consent.useBootstrap == true %}class="navbar navbar-fixed-top"{% endif %}>
+        <p>
+            {{ text_info }}
+            {% if fairlane_cookie_consent.twig.url_additional_info| length > 1 and text_additional_info_link | length > 1 %}
+                <a href="{{ fairlane_cookie_consent.twig.url_additional_info }}" target="_blank">{{ text_additional_info_link }}</a>
+            {% endif %}
+        </p>
+        <button {% if fairlane_cookie_consent.useBootstrap == true %}class="btn btn-primary"{% endif %}>{{ text_accept_button }}</button>
+    </div>
+    {% if fairlane_cookie_consent.useJquery %}
+        <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery("#fairlane-cookie-consent button").click(function(){
+                jQuery.ajax({
+                    async: true,
+                    type: 'POST',
+                    url: '{{ url('fairlane_cookie_consent_accept') }}',
+                    data: JSON.stringify({'cookie-consent': 'ok'}),
+                    success: function(data) {
+//                        jQuery("#fairlane-cookie-consent").fadeOut("fast");
+                    },
+                    contentType: "application/json",
+                    dataType: 'json'
+                });
+            })
+        });
+        </script>
+    {% endif %}
+{% endif %}

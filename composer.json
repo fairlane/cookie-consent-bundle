@@ -1,15 +1,14 @@
 {
     "name": "fairlane/cookie-consent-bundle",
     "type": "symfony-bundle",
-    "description": "EU Cookie Consent Bundle",
+    "description": "EU Cookie Consent Bundle for Symfony",
     "keywords": ["cookie", "cookie consent"],
     "license": "WTFPL",
     "require": {
-        "php": "^5.5.9 || ^7.0",
+        "php": "^5.5.9 || ^7.1",
         "twig/twig": "^1.28 || ^2.0",
-        "symfony/framework-bundle": "^2.7 || ^3.0",
-        "symfony/twig-bundle": "^2.7 || ^3.0",
-        "symfony/templating": "^2.7 || ^3.0"
+        "symfony/framework-bundle": "^2.7 || ^3.3",
+        "symfony/twig-bundle": "^2.7 || ^3.3"
     },
     "autoload": {
         "psr-4": {

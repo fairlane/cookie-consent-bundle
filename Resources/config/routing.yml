@@ -1,3 +1,4 @@
-fairlane_cookie_consent_homepage:
-    path:     /
-    defaults: { _controller: FairlaneCookieConsentBundle:Default:index }
+fairlane_cookie_consent_accept:
+    path:     /fairlane/cookie-consent/accept
+    defaults: { _controller: FairlaneCookieConsentBundle:Cookie:accept}
+    methods: [POST]

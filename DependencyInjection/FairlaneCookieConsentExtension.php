@@ -2,6 +2,7 @@
 
 namespace Fairlane\CookieConsentBundle\DependencyInjection;
 
+use Fairlane\CookieConsentBundle\Type\Constant;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -21,7 +22,7 @@ class FairlaneCookieConsentExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-
+        $container->setParameter('fairlane_cookie_consent', $config);
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
