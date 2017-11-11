@@ -1,0 +1,3 @@
+fairlane_cookie_consent_homepage:
+    path:     /
+    defaults: { _controller: FairlaneCookieConsentBundle:Default:index }

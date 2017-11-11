@@ -1,0 +1,4 @@
+services:
+#    fairlane_cookie_consent.example:
+#        class: Fairlane\CookieConsentBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
