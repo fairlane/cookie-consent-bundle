@@ -50,7 +50,7 @@ This bundle has few simple configurations. To see the list configuration options
 ```console
 $ bin/console config:dump-reference fairlane_cookie_consent
 ```
-You must also expose the `fairlane_cookie_consent.twig` service globally.
+You must expose the `fairlane_cookie_consent.twig` service globally.
 ```yaml
 twig:
     // ...
@@ -78,6 +78,18 @@ fairlane_cookie_consent:
 twig:
     globals:
       fairlane_cookie_consent: '@fairlane_cookie_consent.twig'
+```
+The routes must be imported as well. Add following route to your `routes.yml`
+
+```yaml
+fairlane_cookie_consent:
+    resource: "@FairlaneCookieConsentBundle/Resources/config/routing.yml"
+```
+
+Finally, include the twig template into your layout file.
+
+```twig
+{{ include('FairlaneCookieConsentBundle::cookie-info.html.twig') }}
 ```
 
 Step 4: Style the cookie notification

@@ -27,7 +27,7 @@
                     url: '{{ url('fairlane_cookie_consent_accept') }}',
                     data: JSON.stringify({'cookie-consent': 'ok'}),
                     success: function(data) {
-//                        jQuery("#fairlane-cookie-consent").fadeOut("fast");
+                        jQuery("#fairlane-cookie-consent").fadeOut("fast");
                     },
                     contentType: "application/json",
                     dataType: 'json'
